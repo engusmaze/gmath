@@ -47,13 +47,7 @@ pub fn build(b: *std.Build) void {
         .root_source_file = .{ .path = "src/main.zig" },
         .target = target,
         .optimize = optimize,
-        .strip = true,
-        .unwind_tables = false,
     });
-    exe.want_lto = true;
-    exe.dead_strip_dylibs = true;
-    // exe.generated_asm = true;
-    // exe.filters
     exe.root_module.addImport("gmath", gmath);
 
     // This declares intent for the executable to be installed into the
