@@ -15,7 +15,7 @@ pub const Mat2 = extern struct {
     /// ```zig
     /// const m = Mat2.new(1, 2, 3, 4);
     /// ```
-    pub fn new(v00: f32, v10: f32, v01: f32, v11: f32) Mat2 {
+    pub inline fn new(v00: f32, v10: f32, v01: f32, v11: f32) Mat2 {
         return Mat2{ .vec = Vec4.new(v00, v10, v01, v11) };
     }
 
@@ -26,7 +26,7 @@ pub const Mat2 = extern struct {
     /// const scale = Vec2{ 2, 3 };
     /// const m = Mat2.fromScale(scale);
     /// ```
-    pub fn fromScale(scale: Vec2) Mat2 {
+    pub inline fn fromScale(scale: Vec2) Mat2 {
         return Mat2{ .vec = Vec4.new(scale[0], 0, 0, scale[1]) };
     }
 
@@ -37,7 +37,7 @@ pub const Mat2 = extern struct {
     /// const angle = 0.785398163; // 45 degrees
     /// const m = Mat2.fromAngle(angle);
     /// ```
-    pub fn fromAngle(angle: f32) Mat2 {
+    pub inline fn fromAngle(angle: f32) Mat2 {
         const dir = Vec2.new(@cos(angle), @sin(angle));
 
         // TODO: Needs testing
@@ -53,7 +53,7 @@ pub const Mat2 = extern struct {
     /// const angle = 0.785398163; // 45 degrees
     /// const m = Mat2.fromScaleAngle(scale, angle);
     /// ```
-    pub fn fromScaleAngle(scale: Vec2, angle: f32) Mat2 {
+    pub inline fn fromScaleAngle(scale: Vec2, angle: f32) Mat2 {
         return Mat2{ .vec = Mat2.fromAngle(angle).vec.mul(scale.swizzle(.{ 0, 0, 1, 1 })) };
     }
 
@@ -66,7 +66,7 @@ pub const Mat2 = extern struct {
     /// const result = m.apply(v);
     /// // result = Vec2{ 70, 150 }
     /// ```
-    pub fn apply(self: Mat2, vector: Vec2) Vec2 {
+    pub inline fn apply(self: Mat2, vector: Vec2) Vec2 {
         const halves = self.vec.mul(vector.swizzle(.{ 0, 0, 1, 1 }));
         return halves.swizzle(.{ 0, 1 }).add(halves.swizzle(.{ 2, 3 }));
     }
@@ -80,7 +80,7 @@ pub const Mat2 = extern struct {
     /// const result = m1.mul(m2);
     /// // result = Mat2{ ... } // the resulting 2x2 matrix
     /// ```
-    pub fn mul(self: Mat2, other: Mat2) Mat2 {
+    pub inline fn mul(self: Mat2, other: Mat2) Mat2 {
         const a_xyxy = self.vec.swizzle(.{ 0, 1, 0, 1 });
         const b_xxzz = other.vec.swizzle(.{ 0, 2, 0, 2 });
         const a_zwzw = self.vec.swizzle(.{ 2, 3, 2, 3 });

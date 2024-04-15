@@ -18,7 +18,7 @@ pub const Affine2 = extern struct {
     /// const scale = Vec2{ 2.0, 3.0 };
     /// const transform = Affine2.fromScale(scale);
     /// ```
-    pub fn fromScale(scale: Vec2) Affine2 {
+    pub inline fn fromScale(scale: Vec2) Affine2 {
         return Affine2{
             .matrix = Mat2.fromScale(scale),
             .offset = Vec2.zero,
@@ -32,7 +32,7 @@ pub const Affine2 = extern struct {
     /// const angle = 0.785398163; // 45 degrees
     /// const transform = Affine2.fromAngle(angle);
     /// ```
-    pub fn fromAngle(angle: f32) Affine2 {
+    pub inline fn fromAngle(angle: f32) Affine2 {
         return Affine2{
             .matrix = Mat2.fromAngle(angle),
             .offset = Vec2.zero,
@@ -46,7 +46,7 @@ pub const Affine2 = extern struct {
     /// const offset = Vec2{ 10.0, 20.0 };
     /// const transform = Affine2.fromOffset(offset);
     /// ```
-    pub fn fromOffset(offset: Vec2) Affine2 {
+    pub inline fn fromOffset(offset: Vec2) Affine2 {
         return Affine2{
             .matrix = Mat2.identity,
             .offset = offset,
@@ -61,7 +61,7 @@ pub const Affine2 = extern struct {
     /// const angle = 0.785398163; // 45 degrees
     /// const transform = Affine2.fromScaleAngle(scale, angle);
     /// ```
-    pub fn fromScaleAngle(scale: Vec2, angle: f32) Affine2 {
+    pub inline fn fromScaleAngle(scale: Vec2, angle: f32) Affine2 {
         return Affine2{
             .matrix = Mat2.fromScaleAngle(scale, angle),
             .offset = Vec2.zero,
@@ -76,7 +76,7 @@ pub const Affine2 = extern struct {
     /// const offset = Vec2{ 10.0, 20.0 };
     /// const transform = Affine2.fromScaleOffset(scale, offset);
     /// ```
-    pub fn fromScaleOffset(scale: Vec2, angle: f32, offset: Vec2) Affine2 {
+    pub inline fn fromScaleOffset(scale: Vec2, angle: f32, offset: Vec2) Affine2 {
         return Affine2{
             .matrix = Mat2.fromScale(scale, angle),
             .offset = offset,
@@ -91,7 +91,7 @@ pub const Affine2 = extern struct {
     /// const offset = Vec2{ 10.0, 20.0 };
     /// const transform = Affine2.fromAngleOffset(angle, offset);
     /// ```
-    pub fn fromAngleOffset(angle: f32, offset: Vec2) Affine2 {
+    pub inline fn fromAngleOffset(angle: f32, offset: Vec2) Affine2 {
         return Affine2{
             .matrix = Mat2.fromAngle(angle),
             .offset = offset,
@@ -107,7 +107,7 @@ pub const Affine2 = extern struct {
     /// const offset = Vec2{ 10.0, 20.0 };
     /// const transform = Affine2.fromScaleAngleOffset(scale, angle, offset);
     /// ```
-    pub fn fromScaleAngleOffset(scale: Vec2, angle: f32, offset: Vec2) Affine2 {
+    pub inline fn fromScaleAngleOffset(scale: Vec2, angle: f32, offset: Vec2) Affine2 {
         return Affine2{
             .matrix = Mat2.fromScaleAngle(scale, angle),
             .offset = offset,
@@ -123,7 +123,7 @@ pub const Affine2 = extern struct {
     /// const result = transform.apply(v);
     /// // result = Vec2{ 20.0, 35.0 }
     /// ```
-    pub fn apply(self: Affine2, vector: Vec2) Vec2 {
+    pub inline fn apply(self: Affine2, vector: Vec2) Vec2 {
         return self.matrix.apply(vector).add(self.offset);
     }
 
@@ -136,7 +136,7 @@ pub const Affine2 = extern struct {
     /// const result = t1.mul(t2);
     /// // result = Affine2{ ... } // the resulting affine transformation
     /// ```
-    pub fn mul(self: Affine2, other: Affine2) Affine2 {
+    pub inline fn mul(self: Affine2, other: Affine2) Affine2 {
         return Affine2{
             .matrix = self.matrix.mul(other.matrix),
             .offset = self.apply(other.offset),

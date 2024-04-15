@@ -24,50 +24,50 @@ pub const Vec2 = extern struct {
     }
 
     pub inline fn add(self: Vec2, other: Vec2) Vec2 {
-        return .{.vec{self.vec + other.vec}};
+        return .{ .vec = self.vec + other.vec };
     }
     pub inline fn addScalar(self: Vec2, other: f32) Vec2 {
-        return .{.vec{self.vec + @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec + @as(FVector, @splat(other)) };
     }
     pub inline fn addAssign(self: Vec2, other: Vec2) Vec2 {
         self.vec += other.vec;
     }
 
     pub inline fn sub(self: Vec2, other: Vec2) Vec2 {
-        return .{.vec{self.vec - other.vec}};
+        return .{ .vec = self.vec - other.vec };
     }
     pub inline fn subScalar(self: Vec2, other: f32) Vec2 {
-        return .{.vec{self.vec - @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec - @as(FVector, @splat(other)) };
     }
     pub inline fn subAssign(self: Vec2, other: Vec2) Vec2 {
         self.vec -= other.vec;
     }
 
     pub inline fn mul(self: Vec2, other: Vec2) Vec2 {
-        return .{.vec{self.vec * other.vec}};
+        return .{ .vec = self.vec * other.vec };
     }
     pub inline fn mulScalar(self: Vec2, other: f32) Vec2 {
-        return .{.vec{self.vec * @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec * @as(FVector, @splat(other)) };
     }
     pub inline fn mulAssign(self: Vec2, other: Vec2) Vec2 {
         self.vec *= other.vec;
     }
 
     pub inline fn div(self: Vec2, other: Vec2) Vec2 {
-        return .{.vec{self.vec / other.vec}};
+        return .{ .vec = self.vec / other.vec };
     }
     pub inline fn divScalar(self: Vec2, other: f32) Vec2 {
-        return .{.vec{self.vec / @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec / @as(FVector, @splat(other)) };
     }
     pub inline fn divAssign(self: Vec2, other: Vec2) Vec2 {
         self.vec /= other.vec;
     }
 
     pub inline fn rem(self: Vec2, other: Vec2) Vec2 {
-        return .{.vec{self.vec % other.vec}};
+        return .{ .vec = self.vec % other.vec };
     }
     pub inline fn remScalar(self: Vec2, other: f32) Vec2 {
-        return .{.vec{self.vec % @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec % @as(FVector, @splat(other)) };
     }
     pub inline fn remAssign(self: Vec2, other: Vec2) Vec2 {
         self.vec %= other.vec;
@@ -105,50 +105,50 @@ pub const Vec3 = extern struct {
     }
 
     pub inline fn add(self: Vec3, other: Vec3) Vec3 {
-        return .{.vec{self.vec + other.vec}};
+        return .{ .vec = self.vec + other.vec };
     }
     pub inline fn addScalar(self: Vec3, other: f32) Vec3 {
-        return .{.vec{self.vec + @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec + @as(FVector, @splat(other)) };
     }
     pub inline fn addAssign(self: Vec3, other: Vec3) Vec3 {
         self.vec += other.vec;
     }
 
     pub inline fn sub(self: Vec3, other: Vec3) Vec3 {
-        return .{.vec{self.vec - other.vec}};
+        return .{ .vec = self.vec - other.vec };
     }
     pub inline fn subScalar(self: Vec3, other: f32) Vec3 {
-        return .{.vec{self.vec - @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec - @as(FVector, @splat(other)) };
     }
     pub inline fn subAssign(self: Vec3, other: Vec3) Vec3 {
         self.vec -= other.vec;
     }
 
     pub inline fn mul(self: Vec3, other: Vec3) Vec3 {
-        return .{.vec{self.vec * other.vec}};
+        return .{ .vec = self.vec * other.vec };
     }
     pub inline fn mulScalar(self: Vec3, other: f32) Vec3 {
-        return .{.vec{self.vec * @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec * @as(FVector, @splat(other)) };
     }
     pub inline fn mulAssign(self: Vec3, other: Vec3) Vec3 {
         self.vec *= other.vec;
     }
 
     pub inline fn div(self: Vec3, other: Vec3) Vec3 {
-        return .{.vec{self.vec / other.vec}};
+        return .{ .vec = self.vec / other.vec };
     }
     pub inline fn divScalar(self: Vec3, other: f32) Vec3 {
-        return .{.vec{self.vec / @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec / @as(FVector, @splat(other)) };
     }
     pub inline fn divAssign(self: Vec3, other: Vec3) Vec3 {
         self.vec /= other.vec;
     }
 
     pub inline fn rem(self: Vec3, other: Vec3) Vec3 {
-        return .{.vec{self.vec % other.vec}};
+        return .{ .vec = self.vec % other.vec };
     }
     pub inline fn remScalar(self: Vec3, other: f32) Vec3 {
-        return .{.vec{self.vec % @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec % @as(FVector, @splat(other)) };
     }
     pub inline fn remAssign(self: Vec3, other: Vec3) Vec3 {
         self.vec %= other.vec;
@@ -190,50 +190,50 @@ pub const Vec4 = extern struct {
     }
 
     pub inline fn add(self: Vec4, other: Vec4) Vec4 {
-        return .{.vec{self.vec + other.vec}};
+        return .{ .vec = self.vec + other.vec };
     }
     pub inline fn addScalar(self: Vec4, other: f32) Vec4 {
-        return .{.vec{self.vec + @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec + @as(FVector, @splat(other)) };
     }
     pub inline fn addAssign(self: Vec4, other: Vec4) Vec4 {
         self.vec += other.vec;
     }
 
     pub inline fn sub(self: Vec4, other: Vec4) Vec4 {
-        return .{.vec{self.vec - other.vec}};
+        return .{ .vec = self.vec - other.vec };
     }
     pub inline fn subScalar(self: Vec4, other: f32) Vec4 {
-        return .{.vec{self.vec - @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec - @as(FVector, @splat(other)) };
     }
     pub inline fn subAssign(self: Vec4, other: Vec4) Vec4 {
         self.vec -= other.vec;
     }
 
     pub inline fn mul(self: Vec4, other: Vec4) Vec4 {
-        return .{.vec{self.vec * other.vec}};
+        return .{ .vec = self.vec * other.vec };
     }
     pub inline fn mulScalar(self: Vec4, other: f32) Vec4 {
-        return .{.vec{self.vec * @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec * @as(FVector, @splat(other)) };
     }
     pub inline fn mulAssign(self: Vec4, other: Vec4) Vec4 {
         self.vec *= other.vec;
     }
 
     pub inline fn div(self: Vec4, other: Vec4) Vec4 {
-        return .{.vec{self.vec / other.vec}};
+        return .{ .vec = self.vec / other.vec };
     }
     pub inline fn divScalar(self: Vec4, other: f32) Vec4 {
-        return .{.vec{self.vec / @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec / @as(FVector, @splat(other)) };
     }
     pub inline fn divAssign(self: Vec4, other: Vec4) Vec4 {
         self.vec /= other.vec;
     }
 
     pub inline fn rem(self: Vec4, other: Vec4) Vec4 {
-        return .{.vec{self.vec % other.vec}};
+        return .{ .vec = self.vec % other.vec };
     }
     pub inline fn remScalar(self: Vec4, other: f32) Vec4 {
-        return .{.vec{self.vec % @as(FVector, @splat(other))}};
+        return .{ .vec = self.vec % @as(FVector, @splat(other)) };
     }
     pub inline fn remAssign(self: Vec4, other: Vec4) Vec4 {
         self.vec %= other.vec;

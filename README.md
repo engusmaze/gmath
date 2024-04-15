@@ -1,6 +1,6 @@
 # GMath - Geometry Math Library
 
-GMath is a Zig-based linear algebra library that provides a set of vector and matrix types and operations for 2D and 3D geometry. It is designed to be fast, efficient, and easy to use.
+GMath is a Zig-based linear algebra library that provides a set of vector and matrix types and operations for 2D and 3D graphics. It is designed to be fast, efficient, and easy to use.
 
 ## Features
 

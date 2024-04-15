@@ -69,13 +69,13 @@ fn vector(allocator: std.mem.Allocator, output: *AnyWriter, len: usize) !void {
             \\
             \\
             \\pub inline fn {s}(self: {s}, other: {s}) {s} {{
-            \\  return .{{.vec{{self.vec {c} other.vec}}}};
+            \\  return .{{.vec = self.vec {c} other.vec}};
             \\}}
         , .{ function, type_name, type_name, type_name, op });
         try output.print(
             \\
             \\pub inline fn {s}Scalar(self: {s}, other: f32) {s} {{
-            \\  return .{{.vec{{self.vec {c} @as(FVector, @splat(other))}}}};
+            \\  return .{{.vec = self.vec {c} @as(FVector, @splat(other))}};
             \\}}
         , .{ function, type_name, type_name, op });
         try output.print(
