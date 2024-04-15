@@ -1,0 +1,5 @@
+!.gitignore
+!.github
+
+zig-cache
+zig-out
