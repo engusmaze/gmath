@@ -15,7 +15,7 @@ GMath is a Zig-based linear algebra library that provides a set of vector and ma
 Use `zig fetch` command to save the library's URL and its hash to a file called `build.zig.zon`.
 
 ```sh
-zig fetch --save https://github.com/engusmaze/gmath/archive/0000000000000000000000000000000000000000.tar.gz
+zig fetch --save https://github.com/engusmaze/gmath/archive/0dc7ad913112e16cfc97252fef49c9ef754d1f02.tar.gz
 ```
 
 ### 2. Adding the Dependency:
