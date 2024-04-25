@@ -62,7 +62,7 @@ pub const Mat2 = extern struct {
     /// const m = Mat2.fromScale(scale);
     /// ```
     pub inline fn fromScale(scale: Vec2) Mat2 {
-        return Mat2{ .vec = Vec4.new(scale[0], 0, 0, scale[1]) };
+        return Mat2{ .vec = Vec4.new(scale.x(), 0, 0, scale.y()) };
     }
 
     /// Constructs a new 2x2 matrix from an angle (in radians).
