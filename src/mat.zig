@@ -81,7 +81,7 @@ pub const Mat2 = extern struct {
 
         const angles = Vec4.splat(angle).add(Vec4.new(0.0, std.math.pi / 2.0, -std.math.pi / 2.0, 0.0));
 
-        return Mat2{ .vec = Vec4.new(cos(angles[0]), cos(angles[1]), cos(angles[2]), cos(angles[3])) };
+        return Mat2{ .vec = Vec4.new(cos(angles.x()), cos(angles.y()), cos(angles.z()), cos(angles.w())) };
     }
 
     /// Constructs a new 2x2 matrix from a scale vector and an angle (in radians).

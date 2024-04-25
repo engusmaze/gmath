@@ -15,12 +15,12 @@ pub const Vec2 = extern struct {
     pub const zero = Vec2.splat(0);
     pub const one = Vec2.splat(1);
 
-    pub inline fn x(self: Vec2) *f32 {
-        return &self.vec[0];
+    pub inline fn x(self: Vec2) f32 {
+        return self.vec[0];
     }
 
-    pub inline fn y(self: Vec2) *f32 {
-        return &self.vec[1];
+    pub inline fn y(self: Vec2) f32 {
+        return self.vec[1];
     }
 
     pub inline fn add(self: Vec2, other: Vec2) Vec2 {
@@ -92,16 +92,16 @@ pub const Vec3 = extern struct {
     pub const zero = Vec3.splat(0);
     pub const one = Vec3.splat(1);
 
-    pub inline fn x(self: Vec3) *f32 {
-        return &self.vec[0];
+    pub inline fn x(self: Vec3) f32 {
+        return self.vec[0];
     }
 
-    pub inline fn y(self: Vec3) *f32 {
-        return &self.vec[1];
+    pub inline fn y(self: Vec3) f32 {
+        return self.vec[1];
     }
 
-    pub inline fn z(self: Vec3) *f32 {
-        return &self.vec[2];
+    pub inline fn z(self: Vec3) f32 {
+        return self.vec[2];
     }
 
     pub inline fn add(self: Vec3, other: Vec3) Vec3 {
@@ -173,20 +173,20 @@ pub const Vec4 = extern struct {
     pub const zero = Vec4.splat(0);
     pub const one = Vec4.splat(1);
 
-    pub inline fn x(self: Vec4) *f32 {
-        return &self.vec[0];
+    pub inline fn x(self: Vec4) f32 {
+        return self.vec[0];
     }
 
-    pub inline fn y(self: Vec4) *f32 {
-        return &self.vec[1];
+    pub inline fn y(self: Vec4) f32 {
+        return self.vec[1];
     }
 
-    pub inline fn z(self: Vec4) *f32 {
-        return &self.vec[2];
+    pub inline fn z(self: Vec4) f32 {
+        return self.vec[2];
     }
 
-    pub inline fn w(self: Vec4) *f32 {
-        return &self.vec[3];
+    pub inline fn w(self: Vec4) f32 {
+        return self.vec[3];
     }
 
     pub inline fn add(self: Vec4, other: Vec4) Vec4 {

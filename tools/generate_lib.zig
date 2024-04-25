@@ -58,8 +58,8 @@ fn vector(allocator: std.mem.Allocator, output: *AnyWriter, len: usize) !void {
         try output.print(
             \\
             \\
-            \\pub inline fn {c}(self: {s}) *f32 {{
-            \\  return &self.vec[{d}];
+            \\pub inline fn {c}(self: {s}) f32 {{
+            \\  return self.vec[{d}];
             \\}}
         , .{ field, type_name, i });
     }
