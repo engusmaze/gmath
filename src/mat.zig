@@ -1,7 +1,42 @@
+const std = @import("std");
+
 const vec = @import("./vec.zig");
 const Vec2 = vec.Vec2;
 const Vec3 = vec.Vec3;
 const Vec4 = vec.Vec4;
+
+fn factorial(n: comptime_int) comptime_int {
+    var result: comptime_int = 1;
+    for (1..n + 1) |i| {
+        result *= i;
+    }
+    return result;
+}
+
+// Fastest parallelizable cosine
+inline fn cos(value: f32) f32 {
+    @setFloatMode(.optimized);
+
+    const tau = std.math.tau;
+    const pi = std.math.pi;
+    const pi_1_2 = pi / 2.0;
+
+    // var x = value - @as(f32, @floatFromInt(@as(i32, @intFromFloat(value / tau)))) * tau;
+    var x = value - @trunc(value / tau) * tau;
+    x *= if (x < 0.0) 1.0 else -1.0;
+    x += pi_1_2;
+
+    var current_power = x;
+    var result: f32 = 0.0;
+
+    inline for (0..4) |i| {
+        const divisor = factorial(i * 2 + 1);
+        result += current_power / @as(f32, @floatFromInt(if (i & 1 == 0) divisor else -divisor));
+        current_power *= x * x;
+    }
+
+    return result;
+}
 
 pub const Mat2 = extern struct {
     vec: Vec4,
@@ -38,11 +73,15 @@ pub const Mat2 = extern struct {
     /// const m = Mat2.fromAngle(angle);
     /// ```
     pub inline fn fromAngle(angle: f32) Mat2 {
-        const dir = Vec2.new(@cos(angle), @sin(angle));
+        // const dir = Vec2.new(@cos(angle), @sin(angle));
 
         // TODO: Needs testing
         // return Mat2{ .vec = copysign(@shuffle(f32, dir, undefined, IVec4{ 0, 1, 1, 0 }), Vec4{ 1, 1, -1, 1 }) };
-        return Mat2{ .vec = dir.swizzle(.{ 0, 1, 1, 0 }).mul(Vec4.new(1, 1, -1, 1)) };
+        // return Mat2{ .vec = dir.swizzle(.{ 0, 1, 1, 0 }).mul(Vec4.new(1, 1, -1, 1)) };
+
+        const angles = Vec4.splat(angle).add(Vec4.new(0.0, std.math.pi / 2.0, -std.math.pi / 2.0, 0.0));
+
+        return Mat2{ .vec = Vec4.new(cos(angles[0]), cos(angles[1]), cos(angles[2]), cos(angles[3])) };
     }
 
     /// Constructs a new 2x2 matrix from a scale vector and an angle (in radians).
